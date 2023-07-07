@@ -114,27 +114,8 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
           path: |
-            ${{runner.workspace}}/build/cli/vgmstream-cli
-          # ${{runner.workspace}}/build/cli/vgmstream123
-          name: vgmstream-cli
-
-    #- name: Upload Audacious plugin artifact
-    #  uses: actions/upload-artifact@v3
-    #  with:
-    #      path: ${{runner.workspace}}/build/audacious/vgmstream.so
-    #      name: vgmstream-audacious
-
-    # uploads current assets to vgmstream-releases (token only works on merges)
-    - name: Upload artifacts to nightly
-      if: github.event_name != 'pull_request' 
-      shell: bash
-      env:
-        UPLOADER_GITHUB_TOKEN: ${{ secrets.UPLOADER_GITHUB_TOKEN }}
-      # tar cvfz vgmstream-linux-123.tar.gz -C ./build/cli vgmstream123
-      # tar cvfz vgmstream-linux-audacious.tar.gz -C ./build/audacious vgmstream.so
-      run: |
-        tar cvfz ${{runner.workspace}}/vgmstream-linux-cli.tar.gz -C ${{runner.workspace}}/build/cli vgmstream-cli
-        python ${{github.workspace}}/.github/uploader.py ${{runner.workspace}}/vgmstream-linux-cli.tar.gz
+            ${{runner.workspace}}/build/cli/
+          name: cli-tools
 
 
     #- name: Upload artifacts to S3
