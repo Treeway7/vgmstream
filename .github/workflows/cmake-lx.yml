@@ -114,7 +114,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
           path: |
-            ${{runner.workspace}}/build/cli/
+            ${{runner.workspace}}/build/
           name: cli-tools
 
 
